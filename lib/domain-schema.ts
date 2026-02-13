@@ -32,7 +32,7 @@ export const capacities = pgTable('capacities', {
   name: text('name').notNull(),
   tenantId: text('tenant_id').notNull(),
   region: text('region').notNull(),
-  currentUsage: text('current_usage').notNull().default(0),
+  currentUsage: text('current_usage').notNull().default('0'),
   totalCapacity: text('total_capacity').notNull(),
   isActive: boolean('is_active').default(true),
   createdAt: timestamp('created_at').notNull(),
