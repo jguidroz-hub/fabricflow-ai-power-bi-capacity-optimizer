@@ -54,3 +54,17 @@ export const capacityMetrics = pgTable('capacity_metrics', {
 
 // Alias for route compatibility
 export const predictions = userSettings;
+
+export const recommendations = pgTable('recommendations', {
+  id: text('id').primaryKey().$defaultFn(() => crypto.randomUUID()),
+  userId: text('user_id').notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});
+
+export const tenantConnections = pgTable('tenant_connections', {
+  id: text('id').primaryKey().$defaultFn(() => crypto.randomUUID()),
+  userId: text('user_id').notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});
