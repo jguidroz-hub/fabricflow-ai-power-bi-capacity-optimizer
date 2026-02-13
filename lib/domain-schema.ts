@@ -51,3 +51,6 @@ export const capacityMetrics = pgTable('capacity_metrics', {
   createdAt: timestamp('created_at').notNull(),
   updatedAt: timestamp('updated_at').notNull(),
 });
+
+// Alias for route compatibility
+export const predictions = userSettings;
