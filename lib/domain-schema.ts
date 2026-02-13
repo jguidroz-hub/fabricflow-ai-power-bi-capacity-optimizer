@@ -25,29 +25,29 @@ export const auditLog = pgTable('audit_log', {
   createdAt: timestamp('created_at').notNull().default(sql`now()`),
 });
 
-// Records of Power BI/Fabric capacity metrics at specific intervals
-export const capacitySnapshots = pgTable('capacity_snapshots', {
+// Power BI/Fabric capacity tracking and monitoring
+export const capacities = pgTable('capacities', {
   id: text('id').primaryKey(),
   userId: text('user_id').references(() => users.id, { onDelete: 'cascade' }),
+  name: text('name').notNull(),
   tenantId: text('tenant_id').notNull(),
-  totalCpuPercent: text('total_cpu_percent').notNull(),
-  memoryUsageGb: text('memory_usage_gb').notNull(),
-  queryPoolActiveJobs: integer('query_pool_active_jobs').notNull(),
-  potentialThrottlingRisk: boolean('potential_throttling_risk'),
+  region: text('region').notNull(),
+  currentUsage: text('current_usage').notNull().default(0),
+  totalCapacity: text('total_capacity').notNull(),
+  isActive: boolean('is_active').default(true),
   createdAt: timestamp('created_at').notNull(),
   updatedAt: timestamp('updated_at').notNull(),
 });
 
-// AI-generated recommendations for capacity optimization
-export const optimizationRecommendations = pgTable('optimization_recommendations', {
+// Hourly usage metrics for each capacity
+export const capacityMetrics = pgTable('capacity_metrics', {
   id: text('id').primaryKey(),
   userId: text('user_id').references(() => users.id, { onDelete: 'cascade' }),
-  snapshotId: text('snapshot_id').references(() => capacitySnapshots.id, { onDelete: 'cascade' }),
-  recommendationType: text('recommendation_type').notNull(),
-  severity: text('severity').notNull(),
-  estimatedSavingsPercent: text('estimated_savings_percent').notNull(),
-  detailedDescription: text('detailed_description').notNull(),
-  implemented: boolean('implemented'),
+  capacityId: text('capacity_id').references(() => capacities.id, { onDelete: 'cascade' }),
+  memoryUsage: text('memory_usage').notNull(),
+  cpuUsage: text('cpu_usage').notNull(),
+  queryDuration: text('query_duration').notNull(),
+  recordTimestamp: timestamp('record_timestamp').notNull(),
   createdAt: timestamp('created_at').notNull(),
   updatedAt: timestamp('updated_at').notNull(),
 });

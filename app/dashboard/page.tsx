@@ -28,13 +28,17 @@ export default function DashboardPage() {
 
       <h2 className="text-lg font-semibold mb-4">Quick Access</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
-          <a href="/dashboard/capacity-overview" className="block p-4 border rounded-lg hover:bg-blue-50 transition">
-            <h3 className="font-medium">Capacity Dashboard</h3>
-            <p className="text-sm text-gray-500">Real-time Power BI capacity monitoring</p>
+          <a href="/dashboard/capacities" className="block p-4 border rounded-lg hover:bg-blue-50 transition">
+            <h3 className="font-medium">Capacity Overview</h3>
+            <p className="text-sm text-gray-500">Monitor and manage Power BI/Fabric capacities</p>
           </a>
-          <a href="/dashboard/recommendations" className="block p-4 border rounded-lg hover:bg-blue-50 transition">
-            <h3 className="font-medium">Optimization Recommendations</h3>
-            <p className="text-sm text-gray-500">AI-powered optimization suggestions</p>
+          <a href="/dashboard/metrics" className="block p-4 border rounded-lg hover:bg-blue-50 transition">
+            <h3 className="font-medium">Usage Metrics</h3>
+            <p className="text-sm text-gray-500">Detailed capacity performance insights</p>
+          </a>
+          <a href="/dashboard/predictions" className="block p-4 border rounded-lg hover:bg-blue-50 transition">
+            <h3 className="font-medium">Capacity Forecasts</h3>
+            <p className="text-sm text-gray-500">AI-powered usage prediction and optimization</p>
           </a>
         <a href="/dashboard/settings" className="block p-4 border rounded-lg hover:bg-blue-50 transition">
           <h3 className="font-medium">Settings</h3>
