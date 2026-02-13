@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'FabricFlow AI - Power BI Capacity Optimizer',
-  description: 'Value Proposition: Helps Power BI and Microsoft Fabric users proactively monitor, predict, and optimize their capacity usage to prevent throttling, improve performance, and reduce costs.',
+  description: 'Value Proposition: Helps Power BI and Microsoft Fabric users proactively monitor, predict, and optim',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
