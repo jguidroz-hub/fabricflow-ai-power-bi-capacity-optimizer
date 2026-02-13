@@ -7,8 +7,8 @@ export const userSettings = pgTable('user_settings', {
   id: text('id').primaryKey(),
   userId: text('user_id').notNull().unique().references(() => users.id, { onDelete: 'cascade' }),
   timezone: text('timezone').default('UTC'),
-  emailNotifications: boolean('email_notifications').default('true'),
-  weeklyDigest: boolean('weekly_digest').default('true'),
+  emailNotifications: boolean('email_notifications').default(true),
+  weeklyDigest: boolean('weekly_digest').default(true),
   createdAt: timestamp('created_at').notNull().default(sql`now()`),
   updatedAt: timestamp('updated_at').notNull().default(sql`now()`),
 });
@@ -34,7 +34,7 @@ export const capacities = pgTable('capacities', {
   region: text('region').notNull(),
   currentUsage: text('current_usage').notNull().default(0),
   totalCapacity: text('total_capacity').notNull(),
-  isActive: boolean('is_active').default('true'),
+  isActive: boolean('is_active').default(true),
   createdAt: timestamp('created_at').notNull(),
   updatedAt: timestamp('updated_at').notNull(),
 });
